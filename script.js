@@ -9,11 +9,6 @@ const pieColors = [
   "#06BCC1",
 ];
 
-// Puoi comunque forzare i titoli qui dentro se serve
-const domandeTestoForzato = [
-  "Come ti sei sentito a leggere i dati riguardanti le donne che hanno chiesto affidamento ad esso? Te li aspettavi?",
-];
-
 async function caricaDati() {
   try {
     const response = await fetch(CONFIG.API_URL);
@@ -61,7 +56,6 @@ function creaSezioneDomanda(container, question, answers, index) {
 
   let tipo = "testo";
 
-  // Se è forzata, OPPURE se è un testo lungo, mostra a righe
   if (domandeTestoForzato.includes(question.trim()) || isLongText) {
     tipo = "testo";
   } else if (isNumeric && Math.max(...answers) <= 10) {
@@ -145,3 +139,4 @@ function creaSezioneDomanda(container, question, answers, index) {
 }
 
 caricaDati();
+
