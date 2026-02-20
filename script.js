@@ -9,6 +9,8 @@ const pieColors = [
   "#06BCC1",
 ];
 
+const domandeTestoForzato = [];
+
 async function caricaDati() {
   try {
     const response = await fetch(CONFIG.API_URL);
@@ -49,7 +51,6 @@ function creaSezioneDomanda(container, question, answers, index) {
   const uniqueValues = Object.keys(counts).length;
   const isNumeric = answers.every((a) => !isNaN(a) && a !== "");
 
-  // Riconosce se c'è almeno una risposta testuale lunga
   const isLongText = answers.some(
     (a) => typeof a === "string" && a.length > 50,
   );
@@ -139,4 +140,3 @@ function creaSezioneDomanda(container, question, answers, index) {
 }
 
 caricaDati();
-
