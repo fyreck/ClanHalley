@@ -9,9 +9,15 @@ const pieColors = [
   "#06BCC1",
 ];
 
-const domandeTestoForzato = [];
-
 async function caricaDati() {
+  const domandeTestoForzato = [
+      "Come ti sei sentito a leggere i dati riguardanti le donne che hanno chiesto affidamento ad esso? Te li aspettavi?",
+      "se si, come ti sei comportato?"
+  ];
+
+  const barColors = ["#ffcdd2", "#e57373", "#ef5350", "#d32f2f", "#b71c1c"];
+  const pieColors = ["#1f487e", "#d32f2f", "#fce762", "#ffb17a", "#44AF69", "#AEB8FE", "#06BCC1"];
+
   try {
     const response = await fetch(CONFIG.API_URL);
     const data = await response.json();
@@ -20,8 +26,7 @@ async function caricaDati() {
     const container = document.getElementById("content-container");
 
     if (!data || data.length < 2) {
-      container.innerHTML =
-        '<div class="dashboard-card center">Nessun dato disponibile.</div>';
+      container.innerHTML = '<div class="dashboard-card center">Nessun dato disponibile.</div>';
       return;
     }
 
@@ -30,21 +35,18 @@ async function caricaDati() {
 
     for (let i = 1; i < headers.length; i++) {
       const question = headers[i];
-      const answers = rows
-        .map((r) => r[i])
-        .filter((a) => a !== "" && a !== undefined);
+      const answers = rows.map((r) => r[i]).filter((a) => a !== "" && a !== undefined);
       if (answers.length === 0) continue;
 
-      creaSezioneDomanda(container, question, answers, i);
+      creaSezioneDomanda(container, question, answers, i, domandeTestoForzato, barColors, pieColors);
     }
   } catch (error) {
     console.error(error);
-    document.getElementById("loading").innerText =
-      "Errore nel caricamento dei dati.";
+    document.getElementById("loading").innerText = "Errore nel caricamento dei dati.";
   }
 }
 
-function creaSezioneDomanda(container, question, answers, index) {
+function creaSezioneDomanda(container, question, answers, index, domandeTestoForzato, barColors, pieColors) {
   const counts = {};
   answers.forEach((a) => (counts[a] = (counts[a] || 0) + 1));
 
@@ -140,3 +142,4 @@ function creaSezioneDomanda(container, question, answers, index) {
 }
 
 caricaDati();
+
