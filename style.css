@@ -1,0 +1,91 @@
+body {
+  background-color: #f4f7f6;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+.hero {
+  background: linear-gradient(135deg, #d32f2f, #9a0007);
+  color: white;
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.dashboard-container {
+  max-width: 850px;
+  margin: -40px auto 40px;
+  padding: 0 20px;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(211, 47, 47, 0.08);
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 15px;
+}
+
+.response-badge {
+  background-color: #ffebee;
+  color: #d32f2f;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.chart-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+.text-response {
+  background: #ffffff;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border-left: 4px solid #d32f2f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.center {
+  text-align: center;
+  font-weight: 500;
+}
